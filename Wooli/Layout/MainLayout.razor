@@ -1,0 +1,38 @@
+﻿@inherits LayoutComponentBase
+@using Wooli.Components
+@using MudBlazor
+
+
+<MudThemeProvider />
+
+<MudLayout>
+    <MudAppBar Elevation="1" Fixed="true">
+        <MudSpacer />
+        @* TODO: Source avatar from user object *@
+        <MudAvatar Rounded="true">
+            <MudImage Src="images/avatar.png"></MudImage>
+        </MudAvatar>
+    </MudAppBar>
+    <MudDrawer Anchor="Anchor.Right" Open="true" Elevation="0" Fixed="false" class="overflow-visible mt-20">
+        <MudNavMenu class="overflow-visible">
+            <MudText Typo="Typo.h6">Wooli</MudText>
+            <MudDivider Class="my-2" />
+            <MudNavLink Href="/home">Home</MudNavLink>
+            <MudNavLink Href="/notifications">Notifications</MudNavLink>
+            <MudNavLink Href="/explore">Explore</MudNavLink>
+            <MudNavLink Href="/live-feeds">Live feeds</MudNavLink>
+            <MudNavLink Href="/favorites">Favorites</MudNavLink>
+            <MudNavLink Href="/lists">Lists</MudNavLink>
+            <MudDivider Class="my-2" />
+            <MudNavLink Href="/preferences">Preferences</MudNavLink>
+            <MudNavLink Href="/app-settings">App settings</MudNavLink>
+            <MudDivider Class="my-2" />
+            <MudNavLink Href="/about">About</MudNavLink>
+        </MudNavMenu>
+    </MudDrawer>
+    <MudMainContent>
+        <div class="my-table-container">
+            <h1>Hello world</h1>
+        </div>
+    </MudMainContent>
+</MudLayout>
