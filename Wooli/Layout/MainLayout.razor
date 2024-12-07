@@ -1,39 +1,38 @@
 ﻿@inherits LayoutComponentBase
+@using Wooli.Components
+@using MudBlazor
 
-@* <div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
-
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div> *@
-
-@* Required *@
 <MudThemeProvider />
-<MudPopoverProvider />
-
-@* Needed for dialogs *@
-<MudDialogProvider />
-
-@* Needed for snackbars *@
-<MudSnackbarProvider />
 
 <MudLayout>
-    <MudAppBar>
-        My Application
+    <MudAppBar Elevation="1" Fixed="true">
+        <MudSpacer />
+        @* TODO: Source avatar from user object *@
+        <MudAvatar Rounded="true">
+            <MudImage Src="images/avatar.png"></MudImage>
+        </MudAvatar>
     </MudAppBar>
-    @* <MudDrawer Open="true">
-
-    </MudDrawer> *@
+    <MudDrawer Anchor="Anchor.Right" Open="true" Elevation="0" Fixed="false" class="overflow-visible mt-20">
+        <MudNavMenu class="overflow-visible">
+            <MudText Typo="Typo.h6">Wooli</MudText>
+            <MudDivider Class="my-2" />
+            <MudNavLink Href="/home">Home</MudNavLink>
+            <MudNavLink Href="/notifications">Notifications</MudNavLink>
+            <MudNavLink Href="/explore">Explore</MudNavLink>
+            <MudNavLink Href="/live-feeds">Live feeds</MudNavLink>
+            <MudNavLink Href="/favorites">Favorites</MudNavLink>
+            <MudNavLink Href="/lists">Lists</MudNavLink>
+            <MudDivider Class="my-2" />
+            <MudNavLink Href="/preferences">Preferences</MudNavLink>
+            <MudNavLink Href="/app-settings">App settings</MudNavLink>
+            <MudDivider Class="my-2" />
+            <MudNavLink Href="/about">About</MudNavLink>
+        </MudNavMenu>
+    </MudDrawer>
     <MudMainContent>
-        @Body
+        <div class="my-table-container">
+            <h1>Hello world</h1>
+        </div>
     </MudMainContent>
 </MudLayout>
