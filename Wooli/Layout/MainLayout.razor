@@ -6,33 +6,58 @@
 <MudThemeProvider />
 
 <MudLayout>
-    <MudAppBar Elevation="1" Fixed="true">
+    <MudAppBar Elevation="0" Dense="true">
         <MudSpacer />
         @* TODO: Source avatar from user object *@
         <MudAvatar Rounded="true">
             <MudImage Src="images/avatar.png"></MudImage>
         </MudAvatar>
     </MudAppBar>
-    <MudDrawer Anchor="Anchor.Right" Open="true" Elevation="0" Fixed="false" class="overflow-visible mt-20">
-        <MudNavMenu class="overflow-visible">
-            <MudText Typo="Typo.h6">Wooli</MudText>
+    @* <MudPaper Height="100vh" Style="overflow:hidden; position:relative;"> *@
+    @* <MudDrawerContainer Class="mud-height-full"> *@
+    <MudDrawer Anchor="Anchor.Right" Elevation="0" ClipMode="DrawerClipMode.Never" Variant="@DrawerVariant.Mini"
+        Breakpoint="Breakpoint.Xs" @bind-Open="@_open">
+        <MudNavMenu>
+            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home" Class="mt-2" Href="/home">
+                Home
+            </MudNavLink>
+            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Notifications" Href="/notifications">
+                Notifications
+            </MudNavLink>
+            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Explore" Href="/explore">Explore
+            </MudNavLink>
+            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Public" Href="/live-feeds">Live
+                feeds
+            </MudNavLink>
+            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Bookmarks" Href="/favorites">
+                Favorites
+            </MudNavLink>
+            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Star" Href="/lists">Lists
+            </MudNavLink>
             <MudDivider Class="my-2" />
-            <MudNavLink Href="/home">Home</MudNavLink>
-            <MudNavLink Href="/notifications">Notifications</MudNavLink>
-            <MudNavLink Href="/explore">Explore</MudNavLink>
-            <MudNavLink Href="/live-feeds">Live feeds</MudNavLink>
-            <MudNavLink Href="/favorites">Favorites</MudNavLink>
-            <MudNavLink Href="/lists">Lists</MudNavLink>
+            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.ListAlt" Href="/preferences">
+                Preferences
+            </MudNavLink>
+            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Settings" Href="/app-settings">App
+                settings
+            </MudNavLink>
             <MudDivider Class="my-2" />
-            <MudNavLink Href="/preferences">Preferences</MudNavLink>
-            <MudNavLink Href="/app-settings">App settings</MudNavLink>
-            <MudDivider Class="my-2" />
-            <MudNavLink Href="/about">About</MudNavLink>
+            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.SettingsApplications" Href="/about">
+                About
+            </MudNavLink>
         </MudNavMenu>
     </MudDrawer>
+    @* </MudDrawerContainer> *@
+    @* </MudPaper> *@
     <MudMainContent>
-        <div class="my-table-container">
-            <h1>Hello world</h1>
-        </div>
+        <MudSwitch @bind-Value="_open" Label="Open" Color="Color.Primary" Style="width:100%;" />
     </MudMainContent>
 </MudLayout>
+
+@code {
+    private bool _open = false;
+    private void ToggleDrawer()
+    {
+        _open = !_open;
+    }
+}

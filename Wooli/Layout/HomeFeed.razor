@@ -3,14 +3,50 @@
 @using MudBlazor
 
 
-@* <MudGrid Spacing="@Spacing" Justify="Justify.Center">
-    <MudItem>
-        <MudPaper Height="140px" Width="140px" />
-    </MudItem>
-    <MudItem>
-        <MudPaper Height="140px" Width="140px" />
-    </MudItem>
-    <MudItem>
-        <MudPaper Height="140px" Width="140px" />
-    </MudItem>
-</MudGrid> *@
+<MudGrid Justify="Justify.FlexStart" Min="1" Max="1" class="ml-20">
+    @for (int i = 0; i < papers; i++)
+    {
+        int localindex = i;
+
+        <MudItem xs="10">
+            <MudPaper Class="d-flex flex-column align-center justify-center mud-width-full py-8">
+                <MudText Typo="Typo.h6" Align="Align.Center">@breaks[localindex]</MudText>
+            </MudPaper>
+        </MudItem>
+    }
+    </MudGrid>
+
+
+
+    @code {
+
+    int _papers = 10;
+    int papers { get { return _papers; } set { UpdatePapers(value); } }
+
+
+    int[] breaks = new int[10] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+
+    Justify justification = Justify.FlexStart;
+
+    void UpdatePapers(int value)
+    {
+
+        int[] newbreaks = Enumerable.Repeat(3, value).ToArray();
+
+        for (int i = 0; i < newbreaks.Length; i++)
+        {
+            if (i < breaks.Length)
+            {
+                newbreaks[i] = breaks[i];
+            }
+        }
+
+        breaks = newbreaks;
+
+        _papers = value;
+
+        StateHasChanged();
+    }
+
+
+}
