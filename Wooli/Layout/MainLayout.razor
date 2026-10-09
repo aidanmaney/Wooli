@@ -6,51 +6,65 @@
 <MudThemeProvider />
 
 <MudLayout>
+    <!--
     <MudAppBar Elevation="0" Dense="true">
         <MudSpacer />
-        @* TODO: Source avatar from user object *@
+    @* TODO: Source avatar from user object *@
         <MudAvatar Rounded="true">
             <MudImage Src="images/avatar.png"></MudImage>
         </MudAvatar>
     </MudAppBar>
+     -->
     @* <MudPaper Height="100vh" Style="overflow:hidden; position:relative;"> *@
-    @* <MudDrawerContainer Class="mud-height-full"> *@
-    <MudDrawer Anchor="Anchor.Right" Elevation="0" ClipMode="DrawerClipMode.Never" Variant="@DrawerVariant.Mini"
-        Breakpoint="Breakpoint.Xs" @bind-Open="@_open">
-        <MudNavMenu>
-            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home" Class="mt-2" Href="/home">
-                Home
-            </MudNavLink>
-            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Notifications" Href="/notifications">
-                Notifications
-            </MudNavLink>
-            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Explore" Href="/explore">Explore
-            </MudNavLink>
-            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Public" Href="/live-feeds">Live
-                feeds
-            </MudNavLink>
-            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Bookmarks" Href="/favorites">
-                Favorites
-            </MudNavLink>
-            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Star" Href="/lists">Lists
-            </MudNavLink>
-            <MudDivider Class="my-2" />
-            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.ListAlt" Href="/preferences">
-                Preferences
-            </MudNavLink>
-            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Settings" Href="/app-settings">App
-                settings
-            </MudNavLink>
-            <MudDivider Class="my-2" />
-            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.SettingsApplications" Href="/about">
-                About
-            </MudNavLink>
-        </MudNavMenu>
-    </MudDrawer>
-    @* </MudDrawerContainer> *@
+    <MudDrawerContainer Class="mud-height-full">
+        <MudDrawer Anchor="Anchor.Right" Elevation="25" ClipMode="DrawerClipMode.Never" Variant="@DrawerVariant.Mini"
+            Breakpoint="Breakpoint.Xs" @bind-Open="@_open">
+            <MudNavMenu>
+                <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home" Class="mt-2" Href="/home">
+                    Home
+                </MudNavLink>
+                <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Notifications" Href="/notifications">
+                    Notifications
+                </MudNavLink>
+                <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Explore" Href="/explore">Explore
+                </MudNavLink>
+                <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Public" Href="/live-feeds">Live
+                    Feeds
+                </MudNavLink>
+                <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Mail" Href="/private-mentions">
+                    Private Mentions
+                </MudNavLink>
+                <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Bookmarks" Href="/bookmarks">
+                    Bookmarks
+                </MudNavLink>
+                <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Star" Href="/favorites">
+                    Favorites
+                </MudNavLink>
+                <MudDivider Class="my-2" />
+                <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.ListAlt" Href="/lists">
+                    Lists
+                </MudNavLink>
+                <MudDivider Class="my-2" />
+                <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Settings" Href="/preferences">
+                    Preferences
+                </MudNavLink>
+                <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.SettingsApplications"
+                    Href="/app-settings">
+                    App Settings
+                </MudNavLink>
+                <MudDivider Class="my-2" />
+                <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.MoreHoriz" Href="/about">
+                    About
+                </MudNavLink>
+            </MudNavMenu>
+        </MudDrawer>
+    </MudDrawerContainer>
     @* </MudPaper> *@
     <MudMainContent>
         <MudSwitch @bind-Value="_open" Label="Open" Color="Color.Primary" Style="width:100%;" />
+        @* <MudPaper Height="100vh" Style="overflow:hidden; position:relative;"> *@
+        @* </MudPaper> *@
+        @* @Body *@
     </MudMainContent>
 </MudLayout>
 
